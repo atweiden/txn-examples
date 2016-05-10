@@ -18,10 +18,10 @@ build() {
 
   msg2 'Building...'
   mktxn \
-    --name="$pkgname" \
-    --version="$pkgver" \
-    --release=$pkgrel \
-    --description="$pkgdesc" \
+    --pkgname="$pkgname" \
+    --pkgver="$pkgver" \
+    --pkgrel=$pkgrel \
+    --pkgdesc="$pkgdesc" \
     quoted-asset-codes.txn
 }
 
