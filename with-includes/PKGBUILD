@@ -1,0 +1,36 @@
+# Maintainer: Andy Weidenbaum <archbaum@gmail.com>
+
+pkgname=with-includes
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="Sample transactions with include directives"
+arch=('any')
+makedepends=('mktxn')
+optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
+groups=('nightscape' 'txn')
+source=("with-includes.tar.gz"{,.asc})
+sha256sums=('048ab635afc6700af84e3f3ea5d89262ab51ea1c7bac2a230210e44ac0141deb'
+            'SKIP')
+validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
+
+build() {
+  cd "$srcdir/with-includes"
+
+  msg2 'Building...'
+  mktxn \
+    --name="$pkgname" \
+    --version="$pkgver" \
+    --release=$pkgrel \
+    --description="$pkgdesc" \
+    with-includes.txn
+}
+
+package() {
+  cd "$srcdir/with-includes"
+
+  msg2 'Installing...'
+  install -Dm 644 $pkgname-$pkgver-$pkgrel.txn.tar.xz \
+          -t "$pkgdir/$HOME/.nightscape/db/"
+
+  find "$pkgdir" -mindepth 1 -maxdepth 1 -exec chown -R $USER:users '{}' \;
+}
