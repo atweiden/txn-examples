@@ -1,6 +1,6 @@
 # Maintainer: Andy Weidenbaum <archbaum@gmail.com>
 
-pkgname=mysamplejrnl
+pkgname=sample
 pkgver=0.1.9
 pkgrel=1
 pkgdesc="Sample transactions"
@@ -14,7 +14,7 @@ sha256sums=('50959d019ef883fec3400df213204228352eda2e9fb7675a66efa8caaee3089b'
 validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
 
 build() {
-  cd "$srcdir"
+  cd "$srcdir/$pkgname"
 
   msg2 'Building...'
   mktxn \
@@ -26,7 +26,7 @@ build() {
 }
 
 package() {
-  cd "$srcdir"
+  cd "$srcdir/$pkgname"
 
   msg2 'Installing...'
   install -Dm 644 $pkgname-$pkgver-$pkgrel.txn.tar.xz \

@@ -1,0 +1,5 @@
+syntax: glob
+
+*.tar.xz
+pkg
+src

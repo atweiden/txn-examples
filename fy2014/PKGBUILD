@@ -5,7 +5,7 @@ pkgver=0.8.8
 pkgrel=1
 pkgdesc="FY2014 transaction journal"
 arch=('any')
-depends=('fy2013')
+#depends=('fy2013')
 makedepends=('mktxn')
 optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
 groups=('nightscape' 'txn')
@@ -15,14 +15,14 @@ sha256sums=('6379d69d8a3100196d731a96e584ab871d0a1d0fef4359604a7d0422bdd6312a'
 validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
 
 build() {
-  cd "$srcdir"
+  cd "$srcdir/$pkgname"
 
   msg2 'Building...'
   mktxn --template=fy2014.toml fy2014.txn
 }
 
 package() {
-  cd "$srcdir"
+  cd "$srcdir/$pkgname"
 
   msg2 'Installing...'
   install -Dm 644 $pkgname-$pkgver-$pkgrel.txn.tar.xz \

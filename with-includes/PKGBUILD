@@ -14,7 +14,7 @@ sha256sums=('048ab635afc6700af84e3f3ea5d89262ab51ea1c7bac2a230210e44ac0141deb'
 validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
 
 build() {
-  cd "$srcdir/with-includes"
+  cd "$srcdir/$pkgname"
 
   msg2 'Building...'
   mktxn \
@@ -26,7 +26,7 @@ build() {
 }
 
 package() {
-  cd "$srcdir/with-includes"
+  cd "$srcdir/$pkgname"
 
   msg2 'Installing...'
   install -Dm 644 $pkgname-$pkgver-$pkgrel.txn.tar.xz \
