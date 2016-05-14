@@ -1,5 +1,6 @@
 syntax: glob
 
+*.tar.gz{,.asc}
 *.tar.xz
 pkg
 src

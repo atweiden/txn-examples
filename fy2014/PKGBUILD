@@ -10,7 +10,7 @@ makedepends=('mktxn')
 optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
 groups=('nightscape' 'txn')
 source=("fy2014.tar.gz"{,.asc})
-sha256sums=('6379d69d8a3100196d731a96e584ab871d0a1d0fef4359604a7d0422bdd6312a'
+sha256sums=('fe3f03964452b756f415d398e311c5f0b00761cf8644f0f655c44a9767bff468'
             'SKIP')
 validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
 
