@@ -11,6 +11,7 @@ _dirs=($(find . -mindepth 1                     \
 
 for _dir in "${_dirs[@]}"; do
   pushd $_dir
+  updpkgsums
   makepkg -Acs -f
   [[ $? != 0 ]] && _fail+=1
   popd
