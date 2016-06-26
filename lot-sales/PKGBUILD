@@ -1,0 +1,36 @@
+# Maintainer: Andy Weidenbaum <archbaum@gmail.com>
+
+pkgname=lot-sales
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="Lot sales example"
+arch=('any')
+makedepends=('mktxn')
+optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
+groups=('nightscape' 'txn')
+source=("lot-sales.tar.gz"{,.asc})
+sha256sums=('4ce06d62ea50e377fd30f777a2b5b8fc068395fc61567733a6e6d8a0351e1cf5'
+            'SKIP')
+validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
+
+build() {
+  cd "$srcdir/$pkgname"
+
+  msg2 'Building...'
+  mktxn \
+    --pkgname="$pkgname" \
+    --pkgver="$pkgver" \
+    --pkgrel=$pkgrel \
+    --pkgdesc="$pkgdesc" \
+    lot-sales.txn
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+
+  msg2 'Installing...'
+  install -Dm 644 $pkgname-$pkgver-$pkgrel.txn.tar.xz \
+          -t "$pkgdir/$HOME/.nightscape/db/"
+
+  find "$pkgdir" -mindepth 1 -maxdepth 1 -exec chown -R $USER:users '{}' \;
+}

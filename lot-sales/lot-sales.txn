@@ -1,0 +1,9 @@
+2016-06-25 "I bought bitcoin for a Netflix subscription instapurchase"
+  Assets:Personal:Coinbase           ฿0.1 BTC @ $700 USD → [instapurchase]
+  Assets:Personal:BankWest:Check    -$70 USD
+
+2016-06-25 "I instapurchased Netflix subscription with bitcoin"
+  Assets:Personal:NetflixPrepaid     $70 USD
+  Assets:Personal:Coinbase          -฿0.1 BTC @ $700 USD ← [instapurchase]
+
+-- vim: ft=txn
