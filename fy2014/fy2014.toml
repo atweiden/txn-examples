@@ -2,4 +2,4 @@ pkgname = "fy2014"
 pkgver = "0.8.8"
 pkgrel = 1
 pkgdesc = "FY2014 transaction journal"
-txndir = "../fy2013"
+txn-dir = "../fy2013"
