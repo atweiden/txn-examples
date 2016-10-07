@@ -6,4 +6,4 @@
   Assets:Personal:NetflixPrepaid     $70 USD
   Assets:Personal:Coinbase          -฿0.1 BTC @ $700 USD ← [instapurchase]
 
--- vim: ft=txn
+-- vim: set filetype=txn foldmethod=marker foldlevel=0:

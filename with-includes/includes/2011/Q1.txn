@@ -60,4 +60,4 @@ Assets:WigwamLLC:Inventory:Wigwams    -1 Wigwam @ 1.03 USD
 
 --------------------------------------------------------------------------
 
--- vim: ft=txn
+-- vim: set filetype=txn foldmethod=marker foldlevel=0:
