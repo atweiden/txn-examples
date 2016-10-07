@@ -1,4 +1,4 @@
-Double-entry bookkeeping transaction journal examples.
+Double-entry accounting ledger examples.
 
 
 Licensing
