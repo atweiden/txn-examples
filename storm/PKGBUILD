@@ -1,0 +1,36 @@
+# Maintainer: Andy Weidenbaum <archbaum@gmail.com>
+
+pkgname=storm
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="Storm transactions"
+arch=('any')
+makedepends=('mktxn')
+optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
+groups=('nightscape' 'txn')
+source=("storm.tar.gz"{,.asc})
+sha256sums=('048ab635afc6700af84e3f3ea5d89262ab51ea1c7bac2a230210e44ac0141deb'
+            'SKIP')
+validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
+
+build() {
+  cd "$srcdir/$pkgname"
+
+  msg2 'Building...'
+  mktxn \
+    --pkgname="$pkgname" \
+    --pkgver="$pkgver" \
+    --pkgrel=$pkgrel \
+    --pkgdesc="$pkgdesc" \
+    storm.txn
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+
+  msg2 'Installing...'
+  install -Dm 644 $pkgname-$pkgver-$pkgrel.txn.tar.xz \
+          -t "$pkgdir/$HOME/.nightscape/db/"
+
+  find "$pkgdir" -mindepth 1 -maxdepth 1 -exec chown -R $USER:users '{}' \;
+}

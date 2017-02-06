@@ -1,0 +1,143 @@
+------------------------------------------------------------------------------
+
+2016-08-31
+assets.personal 100 USD
+equity.personal 100 USD
+
+2016-08-31 ''
+assets.personal €1_000 EUR
+equity.personal €1_000 EUR
+
+2016-08-31 'the postings in this entry contain tab characters'
+assets.personal		1 USD
+equity.personal		1 USD
+
+2016-08-31T23:41:30			'the description is tabbed to the right'
+assets.personal       $10 USD
+equity.personal      +$10 USD
+
+2016-08-31T23:41:30.556014Z 'filled up my buïcĸ föれ âwësom3 ぺ æmount'
+expenses.personal   +5 USD
+assets.personal     -5 USD
+
+2016-08-31
+#"hashtag i bought coins"
+'i bought coins'
+assets.personal     +฿1.00000000 BTC @@ $1000 USD → ["first coins"]
+assets.personal     -$1000.00000 USD
+
+--  comments (1)
+--  comments (2)
+--  comments (3)
+--  comments (4)
+--  comments (5)
+
+2016-08-31T23:41:30
+'i was gifted some coins' #gift !!!!!
+--  a comment
+assets.personal ฿9.00000000 BTC @ $1000 USD « $1.00 USD → ["gifted coins"] --  EOL COMMENT !!!
+--  a comment
+income.personal $9000.00000 USD
+
+2016-08-31T23:41:39.714588Z
+'seven dollar burger and fries'
+  expenses."personal" $7.00 USD
+    assets."personal" -$7.00 USD
+
+2016-08-31
+
+
+
+"lots of space between date and description, 4 tabs prepended to postings below"
+				assets.personal  4.00 TABS --  no xe
+				equity.personal  4.00 TABS --  no xe
+
+2016-08-31
+! #paid #august
+#credit
+"paid in TABS with credit card"
+liabilities.personal  2 TABS @ 100_000 USD
+expenses.personal     2 TABS @@ 200_000 USD --  it should balance
+
+2016-08-31 '''catfood'''
+expenses.personal   4.59 USD
+assets.personal    -4.59 USD
+
+2016-08-31
+'''
+i
+have
+a
+pirate ship
+valued at six bananas
+'''
+assets.personal  6 Bananas @ 0.79 USD
+equity.personal  6 Bananas @ 0.79 USD
+
+2016-08-31 """i received 12 bananas in income"""
+assets.personal    12 Bananas
+income.personal    12 Bananas
+
+2016-08-31
+"""
+ = = = = = = = = = = = = = = =
+ -----------------------------
+| SDR: Special Drawing Rights |
+ -----------------------------
+= = = = = = = = = = = = = = = =
+"""
+#0 #1 #2 #3 #4 #5 #6 #7 #8 #9
+#a #b #c #d #e #f
+assets.personal   123_456_789 SDR
+equity.personal   123_456_789 SDR
+
+
+------------------------------------------------------------------------------
+
+--
+--  no one said postings have to balance at the parsing stage
+--
+
+------------------------------------------------------------------------------
+
+--  the riddler {{{
+
+--vv========================= -- ||||||||||||||||||||||
+  2016-09-01T04:33:07.663158Z -- ||||||||||||||||||||||
+  --vvv====================== -- ||||||||||||||||||||||
+  --vvv====================== -- ||||||||||||||||||||||
+  --vvv====================== -- ||||||||||||||||||||||
+  -----------------------------------------------------
+  '''
+  #"presidential ****"
+  #"George Bush"
+  '''
+  -----------------------------------------------------
+  Assets:NineNines:Pterodactyl:Plush -1 APE @@ 1 HUNDO <<« 0.01 APE -> [apes]
+  -----------------------------------------------------
+  Expenses:NineNines:Velociraptor:Vaseline 3 SIXES
+  -----------------------------------------------------
+  Income:NineNines:Triceratops:"Trippin' On A Hole In A Paper Heart" 7 ELEVENS
+  -----------------------------------------------------
+  Liabilities:NineNines:Ankliosaurus:"All In The Suit That You Wear" 15 NINES
+  -----------------------------------------------------
+  Equity:NineNines:Brontosaurus:"Big Empty" 31 TENS
+
+999999999-01-01 '''
+this would normally be a disbursal of 1 BTC
+
+instead, 1 BTC is added to business equity and assets first
+
+therefore, 1 BTC is neither acquired nor disbursed, but still appears
+in business equity account and expenses account
+
+this entry is highly discouraged
+'''
+Expenses:Business    +1 BTC
+Assets:Business      -1 BTC
+Assets:Business      +1 BTC
+Equity:Business      +1 BTC
+
+--  end the riddler }}}
+
+--  vim: set filetype=txn foldmethod=marker foldlevel=0 nowrap:
