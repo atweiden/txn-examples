@@ -13,24 +13,33 @@ sha256sums=('50959d019ef883fec3400df213204228352eda2e9fb7675a66efa8caaee3089b'
             'SKIP')
 validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
 
+_dir='/var/cache/txn/pkg'
+
+prepare() {
+  cd "$srcdir/$pkgname"
+
+  msg2 'Preparing TXNBUILD...'
+  rm -f TXNBUILD
+  cat >> TXNBUILD <<EOF
+pkgname = '$pkgname'
+pkgver = '$pkgver'
+pkgrel = $pkgrel
+pkgdesc = '$pkgdesc'
+source = '$pkgname.txn'
+EOF
+}
+
 build() {
   cd "$srcdir/$pkgname"
 
   msg2 'Building...'
-  mktxn \
-    --pkgname="$pkgname" \
-    --pkgver="$pkgver" \
-    --pkgrel=$pkgrel \
-    --pkgdesc="$pkgdesc" \
-    sample.txn
+  mktxn
 }
 
 package() {
   cd "$srcdir/$pkgname"
 
   msg2 'Installing...'
-  install -Dm 644 $pkgname-$pkgver-$pkgrel.txn.tar.xz \
-          -t "$pkgdir/$HOME/.nightscape/db/"
-
-  find "$pkgdir" -mindepth 1 -maxdepth 1 -exec chown -R $USER:users '{}' \;
+  install -Dm 644 "$pkgname.txn" -t "$pkgdir/usr/include/txn"
+  install -Dm 644 "$pkgname-$pkgver-$pkgrel.txn.pkg.tar.xz" -t "$pkgdir/$_dir"
 }

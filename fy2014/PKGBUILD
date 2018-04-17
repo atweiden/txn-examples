@@ -5,7 +5,7 @@ pkgver=0.8.8
 pkgrel=1
 pkgdesc="FY2014 transaction journal"
 arch=('any')
-#depends=('fy2013')
+depends=('fy2013')
 makedepends=('mktxn')
 optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
 groups=('nightscape' 'txn')
@@ -14,19 +14,33 @@ sha256sums=('fe3f03964452b756f415d398e311c5f0b00761cf8644f0f655c44a9767bff468'
             'SKIP')
 validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
 
+_dir='/var/cache/txn/pkg'
+
+prepare() {
+  cd "$srcdir/$pkgname"
+
+  msg2 'Preparing TXNBUILD...'
+  rm -f TXNBUILD
+  cat >> TXNBUILD <<EOF
+pkgname = '$pkgname'
+pkgver = '$pkgver'
+pkgrel = $pkgrel
+pkgdesc = '$pkgdesc'
+source = '$pkgname.txn'
+EOF
+}
+
 build() {
   cd "$srcdir/$pkgname"
 
   msg2 'Building...'
-  mktxn --template=fy2014.toml fy2014.txn
+  mktxn
 }
 
 package() {
   cd "$srcdir/$pkgname"
 
   msg2 'Installing...'
-  install -Dm 644 $pkgname-$pkgver-$pkgrel.txn.tar.xz \
-          -t "$pkgdir/$HOME/.nightscape/db/"
-
-  find "$pkgdir" -mindepth 1 -maxdepth 1 -exec chown -R $USER:users '{}' \;
+  install -Dm 644 "$pkgname.txn" -t "$pkgdir/usr/include/txn"
+  install -Dm 644 "$pkgname-$pkgver-$pkgrel.txn.pkg.tar.xz" -t "$pkgdir/$_dir"
 }
