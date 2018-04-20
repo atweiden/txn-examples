@@ -8,10 +8,8 @@ arch=('any')
 makedepends=('mktxn')
 optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
 groups=('nightscape' 'txn')
-source=("quoted-asset-codes.tar.gz"{,.asc})
-sha256sums=('142a4e04dc31b3f11e1185dca9bd0328ccb016a1fefb4d9de2d59b7276e77838'
-            'SKIP')
-validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
+source=("quoted-asset-codes.tar.gz")
+sha256sums=('142a4e04dc31b3f11e1185dca9bd0328ccb016a1fefb4d9de2d59b7276e77838')
 
 _user="$(id -un)"
 _group="$(id -gn)"

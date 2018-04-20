@@ -8,10 +8,8 @@ arch=('any')
 makedepends=('mktxn')
 optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
 groups=('nightscape' 'txn')
-source=("storm.tar.gz"{,.asc})
-sha256sums=('048ab635afc6700af84e3f3ea5d89262ab51ea1c7bac2a230210e44ac0141deb'
-            'SKIP')
-validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
+source=("storm.tar.gz")
+sha256sums=('048ab635afc6700af84e3f3ea5d89262ab51ea1c7bac2a230210e44ac0141deb')
 
 _user="$(id -un)"
 _group="$(id -gn)"

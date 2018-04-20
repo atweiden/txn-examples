@@ -8,10 +8,8 @@ arch=('any')
 makedepends=('mktxn')
 optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
 groups=('nightscape' 'txn')
-source=("lot-sales.tar.gz"{,.asc})
-sha256sums=('4ce06d62ea50e377fd30f777a2b5b8fc068395fc61567733a6e6d8a0351e1cf5'
-            'SKIP')
-validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
+source=("lot-sales.tar.gz")
+sha256sums=('4ce06d62ea50e377fd30f777a2b5b8fc068395fc61567733a6e6d8a0351e1cf5')
 
 _user="$(id -un)"
 _group="$(id -gn)"
