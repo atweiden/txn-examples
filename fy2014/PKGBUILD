@@ -14,7 +14,10 @@ sha256sums=('fe3f03964452b756f415d398e311c5f0b00761cf8644f0f655c44a9767bff468'
             'SKIP')
 validpgpkeys=('DA996E276B1F51FBC492E9873DBB92CDB1B08DAB')
 
-_dir='/var/cache/txn/pkg'
+_user="$(id -un)"
+_group="$(id -gn)"
+_include_dir="$HOME/.txn/include"
+_package_dir="$HOME/.txn/package"
 
 prepare() {
   cd "$srcdir/$pkgname"
@@ -41,6 +44,10 @@ package() {
   cd "$srcdir/$pkgname"
 
   msg2 'Installing...'
-  install -Dm 644 "$pkgname.txn" -t "$pkgdir/usr/include/txn"
-  install -Dm 644 "$pkgname-$pkgver-$pkgrel.txn.pkg.tar.xz" -t "$pkgdir/$_dir"
+  install -dm 700 "$pkgdir/$_include_dir"
+  install -dm 700 "$pkgdir/$_package_dir"
+  install -Dm 644 "$pkgname.txn" -t "$pkgdir/$_include_dir"
+  install -Dm 644 "$pkgname-$pkgver-$pkgrel.txn.pkg.tar.xz" \
+          -t "$pkgdir/$_package_dir"
+  find "$pkgdir" -mindepth 1 -maxdepth 1 -exec chown -R "$_user":"$_group" '{}' +
 }
