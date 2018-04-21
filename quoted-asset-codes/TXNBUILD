@@ -1,0 +1,6 @@
+pkgname = 'quoted-asset-codes'
+pkgver = '3.4.9'
+pkgrel = 1
+pkgdesc = 'Transactions with quoted asset codes'
+source = 'quoted-asset-codes.txn'
+# vim: set filetype=toml foldmethod=marker foldlevel=0:

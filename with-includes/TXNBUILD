@@ -1,0 +1,6 @@
+pkgname = 'with-includes'
+pkgver = '0.0.1'
+pkgrel = 1
+pkgdesc = 'Sample transactions with include directives'
+source = 'with-includes.txn'
+# vim: set filetype=toml foldmethod=marker foldlevel=0:

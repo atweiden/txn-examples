@@ -1,0 +1,6 @@
+pkgname = 'storm'
+pkgver = '0.0.1'
+pkgrel = 1
+pkgdesc = 'Storm transactions'
+source = 'storm.txn'
+# vim: set filetype=toml foldmethod=marker foldlevel=0:

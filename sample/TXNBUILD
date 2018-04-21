@@ -1,0 +1,6 @@
+pkgname = 'sample'
+pkgver = '0.1.9'
+pkgrel = 1
+pkgdesc = 'Sample transactions'
+source = 'sample.txn'
+# vim: set filetype=toml foldmethod=marker foldlevel=0:

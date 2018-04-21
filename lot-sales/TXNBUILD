@@ -1,0 +1,6 @@
+pkgname = 'lot-sales'
+pkgver = '0.0.1'
+pkgrel = 1
+pkgdesc = 'Lot sales example'
+source = 'lot-sales.txn'
+# vim: set filetype=toml foldmethod=marker foldlevel=0:

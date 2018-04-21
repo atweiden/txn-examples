@@ -1,0 +1,6 @@
+pkgname = 'fy2013'
+pkgver = '1.0.0'
+pkgrel = 1
+pkgdesc = 'FY2013 transaction journal'
+source = 'fy2013.txn'
+# vim: set filetype=toml foldmethod=marker foldlevel=0:
