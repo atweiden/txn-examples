@@ -13,8 +13,9 @@ sha256sums=('50959d019ef883fec3400df213204228352eda2e9fb7675a66efa8caaee3089b')
 
 _user="$(id -un)"
 _group="$(id -gn)"
-_include_dir="$HOME/.txn/include"
-_package_dir="$HOME/.txn/package"
+_txn_dir="$HOME/.txn"
+_include_dir="$_txn_dir/include"
+_package_dir="$_txn_dir/package"
 
 prepare() {
   cd "$srcdir/$pkgname"
@@ -41,7 +42,7 @@ Target = $pkgname
 Description = Setting txn directory permissions...
 Depends = coreutils
 When = PostTransaction
-Exec = /usr/bin/chown -R "$_user":"$_group" "$_include_dir" "$_package_dir"
+Exec = /usr/bin/chown -R $_user:$_group $_txn_dir
 EOF
 }
 
