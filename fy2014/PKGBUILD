@@ -31,6 +31,21 @@ pkgrel = $pkgrel
 pkgdesc = '$pkgdesc'
 source = '$pkgname.txn'
 EOF
+
+  msg2 'Preparing pacman hooks...'
+  cat >> "$pkgname-01-chown.hook" <<EOF
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = $pkgname
+
+[Action]
+Description = Setting txn directory permissions...
+Depends = coreutils
+When = PostTransaction
+Exec = /usr/bin/chown -R "$_user":"$_group" "$_include_dir" "$_package_dir"
+EOF
 }
 
 build() {
@@ -49,5 +64,7 @@ package() {
   install -Dm 644 "$pkgname.txn" -t "$pkgdir/$_include_dir"
   install -Dm 644 "$pkgname-$pkgver-$pkgrel.txn.pkg.tar.xz" \
           -t "$pkgdir/$_package_dir"
-  find "$pkgdir" -mindepth 1 -maxdepth 1 -exec chown -R "$_user":"$_group" '{}' +
+
+  msg2 'Installing pacman hooks...'
+  install -Dm 644 *.hook -t "$pkgdir/usr/share/libalpm/hooks"
 }
