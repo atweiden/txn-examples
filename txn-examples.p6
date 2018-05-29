@@ -56,8 +56,8 @@ sub test-target-dirs(
 )
 {
     my Bool:D @test =
-        @dir.map(-> IO::Path:D $dir {
-            my Bool:D $test = test-target-dir($dir, |%opts);
+        await @dir.hyper.map(-> IO::Path:D $dir {
+            start test-target-dir($dir, |%opts);
         });
     my Bool:D %test{IO::Path:D} = @dir Z=> @test;
 }
