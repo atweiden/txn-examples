@@ -18,7 +18,9 @@ sub gen-target-dirs(--> Array[IO::Path:D])
 
 sub clean-target-dirs(IO::Path:D @dir --> Nil)
 {
-    @dir.map(-> IO::Path:D $dir { clean-target-dir($dir) });
+    await @dir.map(-> IO::Path:D $dir {
+        start clean-target-dir($dir)
+    });
 }
 
 sub clean-target-dir(IO::Path:D $dir --> Nil)
@@ -36,7 +38,9 @@ sub rm-rf(IO::Path:D $dir --> Nil)
 
 sub mktarballs(IO::Path:D @dir --> Nil)
 {
-    @dir.map(-> IO::Path:D $dir { mktarball($dir) });
+    await @dir.map(-> IO::Path:D $dir {
+        start mktarball($dir)
+    });
 }
 
 sub mktarball(IO::Path:D $dir --> Nil)
