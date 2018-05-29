@@ -43,4 +43,4 @@
     -- ending comment block
 -- ending comment block
 
--- vim: set filetype=txn foldmethod=marker foldlevel=0:
+-- vim: set filetype=txn foldmethod=marker foldlevel=0 nowrap:
