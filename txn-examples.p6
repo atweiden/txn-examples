@@ -92,31 +92,23 @@ multi sub test-target-dir(
 multi sub format(Bool:D %test --> Str:D)
 {
     my IO::Path:D @dir = %test.keys;
-    my UInt:D $longest-dir-name-length = gen-longest-dir-name-length(@dir);
+    my UInt:D $longest = gen-longest-dir-name-length(@dir);
     my Str:D $header = do {
-        my Str:D $column-header-left = 'dir';
-        my Str:D $column-header-right = 'result';
-        my UInt:D $padding =
-            $longest-dir-name-length - $column-header-left.chars + 1;
-        my Str:D $ws = ' ' x $padding;
-        sprintf(Q{%s%s| %s}, $column-header-left, $ws, $column-header-right);
+        my Str:D $left = 'dir';
+        my Str:D $right = 'result';
+        my Str:D $table-row = gen-table-row($left, $right, $longest);
     };
     my Str:D $header-separator = do {
-        my Str:D $column-header-left = '-' x 3;
-        my Str:D $column-header-right = '-' x 3;
-        my UInt:D $padding =
-            $longest-dir-name-length - $column-header-left.chars + 1;
-        my Str:D $ws = ' ' x $padding;
-        sprintf(Q{%s%s| %s}, $column-header-left, $ws, $column-header-right);
+        my Str:D $left = '-' x 3;
+        my Str:D $right = '-' x 3;
+        my Str:D $table-row = gen-table-row($left, $right, $longest);
     };
     my Str:D $body =
         %test.sort.map(-> %t {
-            my IO::Path:D $dir = %t.keys.first;
+            my Str:D $dir = ~%t.keys.first;
             my Bool:D $success = %t.values.first;
-            my UInt:D $padding = $longest-dir-name-length - $dir.chars + 1;
-            my Str:D $ws = ' ' x $padding;
             my Str:D $passed = format($success);
-            my Str:D $line = sprintf(Q{%s%s| %s}, $dir, $ws, $passed);
+            my Str:D $table-row = gen-table-row($dir, $passed, $longest);
         }).join("\n");
     my Str:D $format = join("\n", $header, $header-separator, $body);
 }
@@ -134,6 +126,14 @@ multi sub format(Bool:D $success where .not --> Str:D)
 sub gen-longest-dir-name-length(IO::Path:D @dir --> UInt:D)
 {
     my UInt:D $longest = @dir.map({ .chars }).max;
+}
+
+sub gen-table-row(Str:D $left, Str:D $right, UInt:D $longest --> Str:D)
+{
+    my UInt:D $padding = $longest - $left.chars + 1;
+    my Str:D $ws = ' ' x $padding;
+    my Str:D $separator = '|';
+    my Str:D $table-row = sprintf(Q{%s%s%s %s}, $left, $ws, $separator, $right);
 }
 
 sub output(Bool:D %test --> Nil)
