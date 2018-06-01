@@ -26,12 +26,12 @@ sub clean-target-dirs(IO::Path:D @dir --> Nil)
 sub clean-target-dir(IO::Path:D $dir --> Nil)
 {
     dir($dir).grep(Tarballish).map({ .unlink });
-    dir($dir).grep(PkgSrc).map({ rm-rf($_) });
+    dir($dir).grep(PkgSrc).map({ .&rm-rf });
 }
 
 sub rm-rf(IO::Path:D $dir --> Nil)
 {
-    dir($dir).grep({ .d }).map({ rm-rf($_) });
+    dir($dir).grep({ .d }).map({ .&rm-rf });
     dir($dir).grep({ .f }).map({ .unlink });
     rmdir($dir);
 }
