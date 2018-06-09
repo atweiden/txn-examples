@@ -7,8 +7,8 @@ pkgdesc="FY2014 transaction journal"
 arch=('any')
 depends=('fy2013')
 makedepends=('mktxn')
-optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
-groups=('nightscape' 'txn')
+optdepends=('tantum: double-entry accounting system')
+groups=('tantum' 'txn')
 source=("fy2014.tar.gz")
 sha256sums=('fe3f03964452b756f415d398e311c5f0b00761cf8644f0f655c44a9767bff468')
 

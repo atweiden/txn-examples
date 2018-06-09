@@ -6,8 +6,8 @@ pkgrel=1
 pkgdesc="Sample transactions"
 arch=('any')
 makedepends=('mktxn')
-optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
-groups=('nightscape' 'txn')
+optdepends=('tantum: double-entry accounting system')
+groups=('tantum' 'txn')
 source=("sample.tar.gz")
 sha256sums=('50959d019ef883fec3400df213204228352eda2e9fb7675a66efa8caaee3089b')
 

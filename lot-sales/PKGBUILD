@@ -6,8 +6,8 @@ pkgrel=1
 pkgdesc="Lot sales example"
 arch=('any')
 makedepends=('mktxn')
-optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
-groups=('nightscape' 'txn')
+optdepends=('tantum: double-entry accounting system')
+groups=('tantum' 'txn')
 source=("lot-sales.tar.gz")
 sha256sums=('4ce06d62ea50e377fd30f777a2b5b8fc068395fc61567733a6e6d8a0351e1cf5')
 

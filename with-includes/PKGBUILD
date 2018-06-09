@@ -6,8 +6,8 @@ pkgrel=1
 pkgdesc="Sample transactions with include directives"
 arch=('any')
 makedepends=('mktxn')
-optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
-groups=('nightscape' 'txn')
+optdepends=('tantum: double-entry accounting system')
+groups=('tantum' 'txn')
 source=("with-includes.tar.gz")
 sha256sums=('048ab635afc6700af84e3f3ea5d89262ab51ea1c7bac2a230210e44ac0141deb')
 

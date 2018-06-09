@@ -6,8 +6,8 @@ pkgrel=1
 pkgdesc="Transactions with quoted asset codes"
 arch=('any')
 makedepends=('mktxn')
-optdepends=('nightscape: double-entry bookkeeping TXN reporting and analysis')
-groups=('nightscape' 'txn')
+optdepends=('tantum: double-entry accounting system')
+groups=('tantum' 'txn')
 source=("quoted-asset-codes.tar.gz")
 sha256sums=('142a4e04dc31b3f11e1185dca9bd0328ccb016a1fefb4d9de2d59b7276e77838')
 
