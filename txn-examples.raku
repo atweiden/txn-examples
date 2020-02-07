@@ -1,4 +1,4 @@
-#!/usr/bin/env perl6
+#!/usr/bin/env raku
 use v6;
 
 subset PkgSrc of IO::Path where { .d && .extension ~~ /pkg|src/ }
@@ -177,7 +177,7 @@ multi sub USAGE('clean' --> Nil)
 {
     constant $HELP = q:to/EOF/.trim;
     Usage:
-      ./txn-examples.p6 clean
+      ./txn-examples.raku clean
     EOF
     say($HELP);
 }
@@ -186,7 +186,7 @@ multi sub USAGE('reup' --> Nil)
 {
     constant $HELP = q:to/EOF/.trim;
     Usage:
-      ./txn-examples.p6 reup
+      ./txn-examples.raku reup
     EOF
     say($HELP);
 }
@@ -195,7 +195,7 @@ multi sub USAGE('test' --> Nil)
 {
     constant $HELP = q:to/EOF/.trim;
     Usage:
-      ./txn-examples.p6 [--pacman] test
+      ./txn-examples.raku [--pacman] test
 
     Options:
       --pacman
@@ -208,7 +208,7 @@ multi sub USAGE(--> Nil)
 {
     constant $HELP = q:to/EOF/.trim;
     Usage:
-      ./txn-examples.p6 [-h] <command>
+      ./txn-examples.raku [-h] <command>
 
     Options:
       -h, --help
